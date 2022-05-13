@@ -1,38 +1,159 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,
+body{
+  color: #ffff;
+  background-color: darkcyan;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-top: 40px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.aplicacion-tareas{
+  display:flex;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.logo-contenedor{
+  width: 100%;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content:center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo-app{
+  width: 220px;
+  height: 150px;
+  border-radius: 90px;
+  border-style: groove;
+  border-width: 20px;
 }
+
+/*Lista de tareas  */
+
+h2{
+ color: darkcyan; 
+ text-align: center;
+ margin: 20px 0;
+
+}
+
+.tareas-lista-principal{
+  width: 600px;
+  min-height: 500px;
+  background-color: coral;
+  padding: 25px;
+  justify-content: center;
+  border-radius: 30px;
+
+}
+
+/* Estilos de componente Tarea*/
+
+.tarea-contenedor{
+  width: 500px;
+  min-height: 65px;
+  background-color: rgb(196, 117, 88);
+  margin: 5px 0;
+  padding: 8px 15px 8px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 7px;
+  border: 1px solid #ffff;
+  cursor: pointer;
+}
+
+.tarea-contenedor:nth-child(3n + 1){
+  background-color: #1b1b32;
+
+}
+
+.tarea-contenedor:nth-child(3n + 2){
+  background-color: #2a2a40;
+
+}
+.tarea-contenedor:nth-child(3n + 3){
+  background-color: #3b3b4f;
+
+}
+
+.tarea-texto{
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  overflow-wrap: anywhere;
+}
+
+.tarea-icono{
+  width: 25px;
+  height: 25px;
+  margin: 5px;
+}
+
+/*  Estilo Tarea completada*/
+
+.tarea-contenedor.completada{
+  background-color: blueviolet;
+  text-decoration: line-through;
+  
+
+}
+
+/* Tarea formulario estilos*/
+
+.tarea-formulario{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.tarea-input{
+  width: 80%;
+  font-size: 18px;
+  background-color: blanchedalmond;
+  padding: 14px, 32px,16px;
+  border-radius: 4px 0 0 4px;
+  border: 2px solid darkcyan ;
+  outline: none;
+  height: 53px;
+}
+
+/*Boton Agregar tarea*/
+
+.tarea-boton{
+  padding: 16px;
+  font-size:18px;
+  font-family: Roboto, sans-serif;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  outline: none;
+  cursor: pointer;
+  background-color: darkcyan;
+  color:bisque;
+  text-transform: capitalize;
+
+}
+
+.tarea-lista-contenedor{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 15px;
+
+
+}
+
+
+
+
+
+

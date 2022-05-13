@@ -6,7 +6,7 @@ import ListaDeTareas from './ListaDeTareas';
 function EstatusTareas({estatus}){
     return(
         <div>
-        <h2> Estatus {estatus}</h2>
+        <h2> Status {estatus}</h2>
         <>
         <ListaDeTareas />
         </>

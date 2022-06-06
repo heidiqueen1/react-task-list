@@ -38,10 +38,18 @@ body{
 /*Lista de tareas  */
 
 h2{
- color: darkcyan; 
+ color: white; 
  text-align: center;
  margin: 20px 0;
 
+}
+
+.palabra-primera{
+  color:darkcyan;
+}
+
+.palabra-segunda{
+  color:darkslategray;
 }
 
 .tareas-lista-principal{
@@ -57,7 +65,7 @@ h2{
 /* Estilos de componente Tarea*/
 
 .tarea-contenedor{
-  width: 500px;
+  width: 100%;
   min-height: 65px;
   background-color: rgb(196, 117, 88);
   margin: 5px 0;
@@ -70,19 +78,19 @@ h2{
   cursor: pointer;
 }
 
-.tarea-contenedor:nth-child(3n + 1){
-  background-color: #1b1b32;
+/*.tarea-contenedor:nth-child(3n + 1){
+  background-color: darkcyan;
 
 }
 
 .tarea-contenedor:nth-child(3n + 2){
-  background-color: #2a2a40;
+  background-color: rgb(7, 168, 168);
 
 }
 .tarea-contenedor:nth-child(3n + 3){
-  background-color: #3b3b4f;
+  background-color: rgb(10, 214, 214);
 
-}
+}*/
 
 .tarea-texto{
   width: 100%;
@@ -99,11 +107,23 @@ h2{
   margin: 5px;
 }
 
+.tarea-icono-dos{
+  width: 25px;
+  height: 25px;
+  margin: 5px;
+}
+
 /*  Estilo Tarea completada*/
 
 .tarea-contenedor.completada{
-  background-color: blueviolet;
+  background-color: darkslategray;
   text-decoration: line-through;
+  
+
+}
+.tarea-contenedor.procesada{
+  background-color: darkcyan;
+  
   
 
 }
@@ -120,7 +140,6 @@ h2{
   width: 80%;
   font-size: 18px;
   background-color: blanchedalmond;
-  padding: 14px, 32px,16px;
   border-radius: 4px 0 0 4px;
   border: 2px solid darkcyan ;
   outline: none;
@@ -130,6 +149,21 @@ h2{
 /*Boton Agregar tarea*/
 
 .tarea-boton{
+  width: 20%;
+  padding: 16px;
+  font-size:18px;
+  font-family: Roboto, sans-serif;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  outline: none;
+  cursor: pointer;
+  background-color: darkcyan;
+  color:bisque;
+  text-transform: capitalize;
+
+}
+.tarea-boton2{
+  width: 20%;
   padding: 16px;
   font-size:18px;
   font-family: Roboto, sans-serif;
@@ -144,12 +178,11 @@ h2{
 }
 
 .tarea-lista-contenedor{
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 15px;
-
-
 }
 
 

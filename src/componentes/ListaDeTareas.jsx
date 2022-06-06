@@ -1,7 +1,8 @@
 import '../App.css';
-import { useState } from 'react';
+import { useState} from 'react';
 import Tarea from './Tarea';
-import TareaFormulario from './TareaFormulario';
+import FormComponente from './FormComponente';
+
 
 
 function ListaDeTareas() {
@@ -15,9 +16,22 @@ function ListaDeTareas() {
       setTareas(tareasActualizadas);
     }
   }
+
+
   const eliminarTarea = id => {
     const tareasActualizadas = tareas.filter(tarea => tarea.id !== id );
     setTareas(tareasActualizadas);
+  }
+
+  const enProcesoTarea = id => {
+    const tareasActualizadas = tareas.map(tarea => {
+      if (tarea.id=== id){
+        tarea.procesada = !tarea.procesada;
+      }
+      return tarea;
+    });
+    setTareas(tareasActualizadas);
+
   }
 
   const completarTarea = id =>{
@@ -32,7 +46,7 @@ function ListaDeTareas() {
 
   return (
     <>
-      <TareaFormulario onSubmit={agregarTarea} />
+      <FormComponente onSubmit={agregarTarea} />
       <div className='tareas-lista-contenedor'>
         {
           tareas.map((tarea) =>
@@ -40,9 +54,11 @@ function ListaDeTareas() {
               key={tarea.id}
               id={tarea.id}
               texto={tarea.texto}
+              procesada={tarea.procesada}
               completada={tarea.completada}
               completarTarea={completarTarea}
               eliminarTarea={eliminarTarea}
+              enProcesoTarea={enProcesoTarea}
             />
           )
 

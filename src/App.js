@@ -13,21 +13,12 @@ function App() {
      
      <div>
      <EstatusTareas 
-      estatus = 'To Do/ Done'
+      estatus = 'To Do'
       />
-      
      </div>
-     <div>
-     <EstatusTareas 
-      estatus = 'In Process'
-      />
-
      </div>
- 
-    </div>
-
-      
-    </div>
+     </div>      
+    
   );
 }
 

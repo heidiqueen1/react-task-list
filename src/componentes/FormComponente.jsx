@@ -4,15 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 function FormComponente(props){
 
-    const [input,setInput] = useState(window.localStorage.getItem("input"));
-    const setLocalStorage = value =>{
-        try{
-            setInput(value);
-            window.localStorage.setItem("input", value)
-        }catch (error) {
-            console.log(error)
-        }
-    }
+    const [input,setInput] = useState("");
+    
 
     const manejarCambio = e => {
         setInput (e.target.value);
@@ -44,7 +37,7 @@ function FormComponente(props){
           value={input}
           placeholder='Write a task'
           name='texto'
-          onChange={e => setLocalStorage(e.target.value)}
+          onChange={manejarCambio}
           />
           <button className='tarea-boton'>
               Add task

@@ -1,5 +1,5 @@
 import '../App.css';
-import { useState} from 'react';
+import { useEffect, useState} from 'react';
 import Tarea from './Tarea';
 import FormComponente from './FormComponente';
 
@@ -7,7 +7,10 @@ import FormComponente from './FormComponente';
 
 function ListaDeTareas() {
 
-  const [tareas, setTareas] = useState([]);
+  const tareasIniciales = JSON.parse(localStorage.getItem("tareas")) ? JSON.parse(localStorage.getItem("tareas")) : [];
+  
+
+  const [tareas, setTareas] = useState(tareasIniciales);
 
   const agregarTarea = tarea => {
     if (tarea.texto.trim()){
@@ -43,7 +46,10 @@ function ListaDeTareas() {
     });
     setTareas(tareasActualizadas);
   }
-
+  
+  useEffect(() =>{
+  localStorage.setItem("tareas",JSON.stringify(tareas))  
+  },[tareas])
   return (
     <>
       <FormComponente onSubmit={agregarTarea} />

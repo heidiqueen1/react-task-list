@@ -15,7 +15,8 @@ function Tarea({id, texto, completada, procesada, completarTarea, eliminarTarea,
             className={procesada ? "tarea-contenedor procesada" : "tarea-contenedor "}
             onClick={() => enProcesoTarea(id)}>
                 <BsFillCalendar2DateFill className="tarea-icono-dos"/>
-                <input type="date"></input>     
+                i:<input type="date"></input> 
+                f:<input type="date"></input>      
             </div>
             <div 
             className="tarea-contenedor-iconos"

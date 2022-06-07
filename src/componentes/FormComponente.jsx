@@ -42,6 +42,7 @@ function FormComponente(props){
           <button className='tarea-boton'>
               Add task
           </button>
+          
           {/* <input
           className='tarea-input'
           type='text'

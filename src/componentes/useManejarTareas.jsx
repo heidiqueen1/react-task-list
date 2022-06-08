@@ -16,8 +16,11 @@ const useManejarTareas = () => {
   };
 
   const eliminarTarea = (id) => {
-    const tareasActualizadas = tareas.filter((tarea) => tarea.id !== id);
-    setTareas(tareasActualizadas);
+    let confirmar = 'confirmo';
+    if(prompt("¿Estas seguro de querer eliminar la tarea? Digite 'confirmo' en caso de ser afirmativo o 'cancelo' en caso de ser negativo") === confirmar){
+      const tareasActualizadas = tareas.filter((tarea) => tarea.id !== id); 
+      
+    setTareas(tareasActualizadas);} 
   };
 
   const enProcesoTarea = (id) => {

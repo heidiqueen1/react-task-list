@@ -219,8 +219,11 @@ h2{
   font-family: Roboto, sans-serif;
   color: black;
   text-align: center;
-  
+  margin: 10%;
+   
 }
+
+
 .tarea-boton-home{
   width: 20%;
   padding: 16px;
@@ -236,5 +239,18 @@ h2{
   margin: 28px;
 }
 
+/* Profile estilos*/
 
+.profile{
+  color: black;
+  font-family: Roboto, sans-serif;
+  text-align: center;
+  margin: 10%;
+}
+
+.heidi-profile{
+  border-radius: 30px;
+  height: 200px;
+  width: 192px;
+}
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import { BsFillEmojiDizzyFill, BsFillCalendar2DateFill } from "react-icons/bs";
+import { BsXSquare, BsFillCalendar2DateFill } from "react-icons/bs";
 
 
 function Tarea({id, texto, completada, procesada, completarTarea, eliminarTarea, enProcesoTarea }){
@@ -21,7 +21,7 @@ function Tarea({id, texto, completada, procesada, completarTarea, eliminarTarea,
             <div 
             className="tarea-contenedor-iconos"
             onClick={() => eliminarTarea(id)}>
-                <BsFillEmojiDizzyFill className="tarea-icono"/>
+                <BsXSquare className="tarea-icono"/>
             </div>
             
         </div>

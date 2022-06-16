@@ -1,16 +1,12 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
+/* 
 html,
 body{
   color: #ffff;
   background-color: #8FD8D2;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   margin-top: 40px;
-}
+} */
 
 .aplicacion-tareas{
   display:flex;
@@ -188,7 +184,7 @@ h2{
 
 /* Barra de navegación*/
 
-.tarea-boton-nav{
+/* .tarea-boton-nav{
   width: 20%;
   padding: 16px;
   font-size:18px;
@@ -203,7 +199,7 @@ h2{
   text-transform: capitalize;
   margin: 10px 20px 10px 200px;
   
-}
+} */
 
 .link{
   text-decoration: none;

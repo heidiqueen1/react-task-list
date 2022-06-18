@@ -4,6 +4,7 @@ import FormComponente from './FormComponente';
 import useManejarTareas from './useManejarTareas';
 
 
+
 function ListaDeTareas() {
   const{tareas,
     agregarTarea,
@@ -15,6 +16,7 @@ function ListaDeTareas() {
     <>
       <FormComponente onSubmit={agregarTarea} />
       <div className='tareas-lista-contenedor'>
+      
         {
           tareas.map((tarea) =>
             <Tarea
@@ -30,6 +32,7 @@ function ListaDeTareas() {
           )
 
         }
+      
       </div>
     </>
   );

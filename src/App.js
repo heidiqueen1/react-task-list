@@ -4,14 +4,18 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./Pages/Home.jsx";
 import Profile from "./Pages/Profile.jsx";
 import Task from "./Pages/Task.jsx";
-import { Box, Button, Stack } from "@chakra-ui/react";
+import { Box, Button, Stack, useColorModeValue } from "@chakra-ui/react";
+import ToggleColorMode from "./componentes/ToggleColorMode.jsx";
+
 
 function App() {
+  const bg = useColorModeValue("gray.800", "#8FD8D2");
+
   return (
     <Router>
       <Box
         color="#ffff"
-        bg="#8FD8D2"
+        bg={bg}
         fontFamily="'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"
         pt="20px"
         minH="100vh"
@@ -50,6 +54,7 @@ function App() {
               </Routes>
             </div>
           </div>
+          <ToggleColorMode />
         </div>
       </Box>
     </Router>

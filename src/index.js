@@ -4,16 +4,16 @@ import App from "./App";
 import { ChakraProvider } from "@chakra-ui/react";
 import { ColorModeScript } from "@chakra-ui/color-mode";
 import theme from "./theme";
-import { userProvider } from "./componentes/provider/userProvider";
+import { UserProvider } from "./componentes/provider/UserProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <userProvider>
+    <UserProvider>
       <ChakraProvider theme={theme}>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <App />
       </ChakraProvider>
-    </userProvider>
+    </UserProvider>
   </React.StrictMode>
 );

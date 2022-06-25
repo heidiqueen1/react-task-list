@@ -6,7 +6,8 @@ export default function Profile()  {
     <div className='profile'>
       <div>
         <img src={heidi}
-        className='heidi-profile'  />
+        className='heidi-profile'
+        alt='foto-heidi'  />
 
       </div>
       <h2>I am the Author</h2>

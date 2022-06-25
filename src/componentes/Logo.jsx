@@ -8,6 +8,7 @@ function Logo(){
         <img 
         src={logo}
         className='logo-app' 
+        alt='logo-lapiz'
         />
       </div>
     )

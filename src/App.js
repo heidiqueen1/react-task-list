@@ -9,10 +9,13 @@ import ToggleColorMode from "./componentes/ToggleColorMode.jsx";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { app } from "./firebase-config";
 import { useState } from "react";
+import {user, useUser} from "./componentes/provider/UserProvider";
+import {useEffect} from "react";
 
 function App() {
   const bg = useColorModeValue("gray.800", "#8FD8D2");
   const [errorMessage, setErrorMessage] = useState("");
+  const {user, setUser} = useUser();
 
   const iniciarSesion = () => {
     const provider = new GoogleAuthProvider();
@@ -20,12 +23,21 @@ function App() {
 
     signInWithPopup(auth, provider)
       .then((userCredentials) => {
-        console.log(`bienvenido ${userCredentials.user.displayName}`);
+        setUser({
+          name: userCredentials.user.displayName,
+          userImage: userCredentials.user.photoURL,
+        });
       })
       .catch((error) => {
         setErrorMessage(error.message);
       });
   };
+
+  useEffect(() => {
+    console.log(`welcome ${user.name} ${user.userImage}`);
+  }, [user]);
+
+
   return (
     <Router>
       <Box
@@ -45,6 +57,10 @@ function App() {
             justifyContent="center"
             m="40px"
           >
+            <>
+            <img src={user.userImage} alt="user profile" />
+            {user.name && <p>{user.name}</p>}
+            </>
             <Button size="lg" color="bisque" variant="outline">
               <Link className="link" to="/">
                 Home
@@ -62,7 +78,7 @@ function App() {
             </Button>
           </Stack>
         </nav>
-        <div className="aplicacion-tareas" align="center" direction="row"  justifyContent="center">
+        <div className="aplicacion-tareas" >
           <Logo />
           <div className="tareas-lista-principal">
             <div>

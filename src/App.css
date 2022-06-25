@@ -232,8 +232,10 @@ h2{
   background-color: darkcyan;
   color:bisque;
   text-transform: capitalize;
-  margin: 28px;
+  margin left: 40%;
+
 }
+
 
 /* Profile estilos*/
 
@@ -246,7 +248,10 @@ h2{
 
 .heidi-profile{
   border-radius: 30px;
-  height: 200px;
-  width: 192px;
+  height: 25%;
+  width: 21%; 
+  margin-left: 40%;
+ 
 }
+
 

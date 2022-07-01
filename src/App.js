@@ -1,5 +1,6 @@
 import "./App.css";
 import Logo from "./componentes/Logo.jsx";
+import PaginaError from "./componentes/PaginaError";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./Pages/Home.jsx";
 import Profile from "./Pages/Profile.jsx";
@@ -20,17 +21,24 @@ function App() {
   const iniciarSesion = () => {
     const provider = new GoogleAuthProvider();
     const auth = getAuth(app);
-
+  
     signInWithPopup(auth, provider)
       .then((userCredentials) => {
-        setUser({
+        const usuarioLogueado = {
           name: userCredentials.user.displayName,
           userImage: userCredentials.user.photoURL,
-        });
+        }
+        setUser(usuarioLogueado);
+       localStorage.setItem("userCredentials", JSON.stringify(usuarioLogueado));
       })
       .catch((error) => {
         setErrorMessage(error.message);
       });
+  };
+
+  const cerrarSesion = () =>{
+    localStorage.removeItem("userCredentials");
+    setUser({});
   };
 
   useEffect(() => {
@@ -57,10 +65,7 @@ function App() {
             justifyContent="center"
             m="40px"
           >
-            <>
-            <img src={user.userImage} alt="user profile" />
-            {user.name && <p>{user.name}</p>}
-            </>
+    
             <Button size="lg" color="bisque" variant="outline">
               <Link className="link" to="/">
                 Home
@@ -76,6 +81,17 @@ function App() {
                 Task
               </Link>
             </Button>
+            <>
+            <img src={user.userImage} alt="user profile" />
+            {user.name && <p>{user.name}</p>}
+            </>
+            <button className="tarea-boton-home" onClick={iniciarSesion}>
+            Login
+          </button>
+          <button className="tarea-boton-home" onClick={cerrarSesion}>
+            Logout
+          </button>
+
           </Stack>
         </nav>
         <div className="aplicacion-tareas" >
@@ -86,17 +102,17 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/profile" element={<Profile />} />
-                <Route path="/task" element={<Task />} />
+                <Route path="/task" element={ user.name ? <Task /> : <PaginaError />} />
+                <Route path="/paginaerror" element={<PaginaError />} />
               </Routes>
             </div>
             <ToggleColorMode />
           </div>
           
         </div>
-        <button className="tarea-boton-home" onClick={iniciarSesion}>
-            Login
-          </button>
+        
       </Box>
+      
     </Router>
   );
 }

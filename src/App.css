@@ -254,4 +254,11 @@ h2{
  
 }
 
+.pagina-error{
+  color: black;
+  font-family: Roboto, sans-serif;
+  text-align: center;
+  margin: 10%;
+}
+
 

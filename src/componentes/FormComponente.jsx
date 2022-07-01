@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import '../App.css';
-import { v4 as uuidv4 } from 'uuid';
 
-function FormComponente(props){
+
+function FormComponente({onEnvio}){
 
     const [input,setInput] = useState("");
     
@@ -19,12 +19,11 @@ function FormComponente(props){
             return
         }
         const tareaNueva = {
-            id: uuidv4(),
             texto: input,
             completada: false
         }
 
-        props.onSubmit(tareaNueva);
+        onEnvio(tareaNueva);
     }
 
 

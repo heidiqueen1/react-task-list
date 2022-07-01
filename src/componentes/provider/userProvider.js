@@ -5,13 +5,15 @@ import { useState } from 'react';
 const userContextDefaultValue = {
     user:  { name:"", userImage: "" },
     setUser:  (user)=> user,
-
 };
+const verificarUsuario = JSON.parse(localStorage.getItem("userCredentials"))
+? JSON.parse(localStorage.getItem("userCredentials"))
+:{};
 
 const userContext = createContext(userContextDefaultValue);
 
 export const UserProvider = ({children})=>{
-    const [user, setUser] = useState ({});
+    const [user, setUser] = useState (verificarUsuario);
     const value ={
         user,
         setUser,

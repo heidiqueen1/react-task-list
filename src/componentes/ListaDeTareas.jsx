@@ -14,7 +14,7 @@ function ListaDeTareas() {
   
   return (
     <>
-      <FormComponente onSubmit={agregarTarea} />
+      <FormComponente onEnvio={agregarTarea} />
       <div className='tareas-lista-contenedor'>
       
         {

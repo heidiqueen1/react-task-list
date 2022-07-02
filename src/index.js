@@ -4,7 +4,7 @@ import App from "./App";
 import { ChakraProvider } from "@chakra-ui/react";
 import { ColorModeScript } from "@chakra-ui/color-mode";
 import theme from "./theme";
-import { UserProvider } from "./componentes/provider/UserProvider";
+import { UserProvider } from "./provider/UserProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

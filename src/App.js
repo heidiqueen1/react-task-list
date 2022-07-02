@@ -10,7 +10,7 @@ import ToggleColorMode from "./componentes/ToggleColorMode.jsx";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { app } from "./firebase-config";
 import { useState } from "react";
-import {user, useUser} from "./componentes/provider/UserProvider";
+import {user, useUser} from "./provider/UserProvider";
 import {useEffect} from "react";
 
 function App() {

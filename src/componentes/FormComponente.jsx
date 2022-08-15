@@ -9,7 +9,7 @@ function FormComponente({onEnvio}){
 
     const manejarCambio = e => {
         setInput (e.target.value);
-
+        
     }
 
     const manejarEnvio = e => {
@@ -17,18 +17,23 @@ function FormComponente({onEnvio}){
         if (input.length < 3) {
             alert("No se aceptan menos de tres caracteres, ingresa la tarea completa")
             return
+            
         }
         const tareaNueva = {
             texto: input,
             completada: false
+           
         }
 
         onEnvio(tareaNueva);
+        setInput("");
+        
+ 
     }
 
 
   return(
-      <form className='tarea-formulario'
+      <form id= "formulario" className='tarea-formulario'
       onSubmit={manejarEnvio}>
           <input
           className='tarea-input' 

@@ -50,8 +50,8 @@ const useManejarTareas = () => {
     if (tareaNueva.texto.trim()) {
       tareaNueva.texto = tareaNueva.texto.trim();
       addDocument(tareaNueva);
-    
     }
+   
   };
 
   const eliminarTarea = (id) => {
@@ -70,6 +70,7 @@ const useManejarTareas = () => {
       return tarea;
     });
     setTareas(tareasActualizadas);
+    
   };
 
   const completarTarea = (id) => {

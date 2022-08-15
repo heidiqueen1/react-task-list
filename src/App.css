@@ -131,6 +131,7 @@ h2{
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  color: black;
 }
 
 .tarea-input{

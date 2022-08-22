@@ -10,33 +10,34 @@ import ToggleColorMode from "./componentes/ToggleColorMode.jsx";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { app } from "./firebase-config";
 import { useState } from "react";
-import {user, useUser} from "./provider/UserProvider";
-import {useEffect} from "react";
+import { useUser } from "./provider/UserProvider";
+import { useEffect } from "react";
 
 function App() {
   const bg = useColorModeValue("gray.800", "#8FD8D2");
   const [errorMessage, setErrorMessage] = useState("");
-  const {user, setUser} = useUser();
+  const { user, setUser } = useUser();
 
   const iniciarSesion = () => {
     const provider = new GoogleAuthProvider();
     const auth = getAuth(app);
-  
+
     signInWithPopup(auth, provider)
       .then((userCredentials) => {
         const usuarioLogueado = {
           name: userCredentials.user.displayName,
           userImage: userCredentials.user.photoURL,
-        }
+        };
         setUser(usuarioLogueado);
-       localStorage.setItem("userCredentials", JSON.stringify(usuarioLogueado));
+        localStorage.setItem("userCredentials", JSON.stringify(usuarioLogueado));
+        console.log(user);
       })
       .catch((error) => {
         setErrorMessage(error.message);
       });
   };
 
-  const cerrarSesion = () =>{
+  const cerrarSesion = () => {
     localStorage.removeItem("userCredentials");
     setUser({});
   };
@@ -44,7 +45,6 @@ function App() {
   useEffect(() => {
     console.log(`welcome ${user.name} ${user.userImage}`);
   }, [user]);
-
 
   return (
     <Router>
@@ -65,7 +65,6 @@ function App() {
             justifyContent="center"
             m="40px"
           >
-    
             <Button size="lg" color="bisque" variant="outline">
               <Link className="link" to="/">
                 Home
@@ -82,19 +81,21 @@ function App() {
               </Link>
             </Button>
             <>
-            <img src={user.userImage} alt="user profile" />
-            {user.name && <p>{user.name}</p>}
+              <img src={user.userImage} alt="" />
+              <p>{user.name}</p>
             </>
-            <button className="tarea-boton-home" onClick={iniciarSesion}>
-            Login
-          </button>
-          <button className="tarea-boton-home" onClick={cerrarSesion}>
-            Logout
-          </button>
-
+            {user.name ? (
+              <button className="tarea-boton-home" onClick={cerrarSesion}>
+                Logout
+              </button>
+            ) : (
+              <button className="tarea-boton-home" onClick={iniciarSesion}>
+                Login
+              </button>
+            )}
           </Stack>
         </nav>
-        <div className="aplicacion-tareas" >
+        <div className="aplicacion-tareas">
           <Logo />
           <div className="tareas-lista-principal">
             <div>
@@ -102,17 +103,17 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/profile" element={<Profile />} />
-                <Route path="/task" element={ user.name ? <Task /> : <PaginaError />} />
+                <Route
+                  path="/task"
+                  element={user.name ? <Task /> : <PaginaError />}
+                />
                 <Route path="/paginaerror" element={<PaginaError />} />
               </Routes>
             </div>
             <ToggleColorMode />
           </div>
-          
         </div>
-        
       </Box>
-      
     </Router>
   );
 }
